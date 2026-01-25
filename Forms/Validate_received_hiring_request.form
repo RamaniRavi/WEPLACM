@@ -2,7 +2,7 @@
   "components": [
     {
       "type": "text",
-      "text": "# Validate received hiring request"
+      "text": "# Validate Received Hiring Request"
     },
     {
       "type": "group",
@@ -55,6 +55,13 @@
           "key": "department_view",
           "readOnly": true,
           "defaultValue": "=hiringRequest.job_opening.department"
+        },
+        {
+          "type": "textarea",
+          "label": "Locations (list)",
+          "key": "locations",
+          "readOnly": true,
+          "defaultValue": "=stringify(hiringRequest.job_opening.location)"
         },
         {
           "type": "textfield",
@@ -179,6 +186,19 @@
           "key": "benefits_view",
           "readOnly": true,
           "defaultValue": "=stringify(hiringRequest.job_opening.employment_details.benefits)"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "Required Documents",
+      "components": [
+        {
+          "type": "textarea",
+          "label": "Documents list",
+          "key": "required_documents",
+          "readOnly": true,
+          "defaultValue": "=stringify(hiringRequest.required_documents)"
         }
       ]
     },
