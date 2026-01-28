@@ -3,263 +3,134 @@
     {
       "text": "# Define candidate eligibility criteria",
       "type": "text",
-      "id": "Field_0vsbxzc",
-      "layout": {
-        "row": "Row_11s73nj"
-      }
+      "id": "Field_0vsbxzc"
     },
     {
       "text": "Review the origin company’s eligibility standards and define the final eligibility criteria for this job.",
       "type": "text",
-      "id": "Field_0xa0pdm",
-      "layout": {
-        "row": "Row_0rvj3tu"
-      }
+      "id": "Field_0xa0pdm"
     },
     {
-      "label": "Context (read-only)",
+      "label": "Context",
       "components": [
         {
           "label": "Job title (request)",
           "type": "textfield",
-          "key": "view_job_title",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.job_title",
-          "id": "Field_0e4d0ay",
-          "layout": {
-            "row": "Row_0iqxpml"
-          }
+          "key": "hiringRequest.job_opening.job_title"
         },
         {
           "label": "Department (request)",
           "type": "textfield",
-          "key": "view_department",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.department",
-          "id": "Field_0sb1i8x",
-          "layout": {
-            "row": "Row_0qwn4dp"
-          }
+          "key": "hiringRequest.job_opening.department"
         },
         {
           "label": "Employment type (request)",
           "type": "textfield",
-          "key": "view_employment_type",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.employment_details.job_type",
-          "id": "Field_17r5qph",
-          "layout": {
-            "row": "Row_09u86it"
-          }
+          "key": "hiringRequest.job_opening.employment_details.job_type"
         },
         {
           "label": "Work mode (request)",
           "type": "textfield",
-          "key": "view_work_mode",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.work_mode",
-          "id": "Field_1stuw45",
-          "layout": {
-            "row": "Row_0aq0e3b"
-          }
+          "key": "hiringRequest.job_opening.work_mode"
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_1eyz6ri",
-      "layout": {
-        "row": "Row_0q8ksff"
-      }
+      "id": "Field_1eyz6ri"
     },
     {
-      "label": "Origin company standards (read-only reference)",
+      "label": "Origin company standards",
       "components": [
         {
           "label": "Minimum legal working age",
           "type": "textfield",
-          "key": "view_min_age",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.minimum_legal_working_age",
-          "id": "Field_0ptfh0b",
-          "layout": {
-            "row": "Row_0rwwfcd"
-          }
+          "key": "originStandards.standards_of_eligibility.legal_and_compliance.minimum_legal_working_age"
         },
         {
           "label": "Work authorization required",
           "type": "checkbox",
-          "key": "view_work_auth_required",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.work_authorization_required",
-          "id": "Field_04orksz",
-          "layout": {
-            "row": "Row_1vfaavj"
-          }
+          "key": "originStandards.standards_of_eligibility.legal_and_compliance.work_authorization_required"
         },
         {
           "label": "Background check required",
           "type": "checkbox",
-          "key": "view_bg_required",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.background_check_required",
-          "id": "Field_1nhjze9",
-          "layout": {
-            "row": "Row_06xawnz"
-          }
+          "key": "originStandards.standards_of_eligibility.legal_and_compliance.background_check_required"
         },
         {
           "label": "Drug testing required",
           "type": "checkbox",
-          "key": "view_drug_required",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.drug_testing_required",
-          "id": "Field_1bao6s5",
-          "layout": {
-            "row": "Row_0nsx70r"
-          }
+          "key": "originStandards.standards_of_eligibility.legal_and_compliance.drug_testing_required"
         },
         {
           "label": "Required education level",
           "type": "textfield",
-          "key": "view_required_education",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.minimum_qualifications.required_education_level",
-          "id": "Field_0a3zzke",
-          "layout": {
-            "row": "Row_0a62fyk"
-          }
+          "key": "originStandards.standards_of_eligibility.minimum_qualifications.required_education_level"
         },
         {
           "label": "Minimum years experience",
           "type": "number",
-          "key": "view_min_years_exp",
-          "readOnly": true,
-          "defaultValue": "=originStandards.standards_of_eligibility.minimum_qualifications.minimum_years_experience",
-          "id": "Field_0758qut",
-          "layout": {
-            "row": "Row_194uaot"
-          }
+          "key": "originStandards.standards_of_eligibility.minimum_qualifications.minimum_years_experience"
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_1pjsrsj",
-      "layout": {
-        "row": "Row_1xeeymw"
-      }
+      "id": "Field_1pjsrsj"
     },
     {
-      "label": "Final eligibility criteria (editable output)",
+      "label": "Final eligibility criteria",
       "components": [
         {
           "label": "Minimum legal working age",
           "type": "textfield",
           "key": "eligibilityCriteria.minLegalWorkingAge",
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.minimum_legal_working_age",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_1u4uizx",
-          "layout": {
-            "row": "Row_1jps1ks"
-          }
+          "validate": { "required": true }
         },
         {
           "label": "Work authorization required",
           "type": "checkbox",
-          "key": "eligibilityCriteria.workAuthorizationRequired",
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.work_authorization_required",
-          "id": "Field_1knkaud",
-          "layout": {
-            "row": "Row_1dcwogz"
-          }
+          "key": "eligibilityCriteria.workAuthorizationRequired"
         },
         {
           "label": "Background check required",
           "type": "checkbox",
-          "key": "eligibilityCriteria.backgroundCheckRequired",
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.background_check_required",
-          "id": "Field_08mj8zd",
-          "layout": {
-            "row": "Row_1c3y5vn"
-          }
+          "key": "eligibilityCriteria.backgroundCheckRequired"
         },
         {
           "label": "Drug testing required",
           "type": "checkbox",
-          "key": "eligibilityCriteria.drugTestingRequired",
-          "defaultValue": "=originStandards.standards_of_eligibility.legal_and_compliance.drug_testing_required",
-          "id": "Field_1at6ljw",
-          "layout": {
-            "row": "Row_0k2x2ox"
-          }
+          "key": "eligibilityCriteria.drugTestingRequired"
         },
         {
           "label": "Required education level",
           "type": "textfield",
           "key": "eligibilityCriteria.requiredEducationLevel",
-          "defaultValue": "=originStandards.standards_of_eligibility.minimum_qualifications.required_education_level",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_1n0df39",
-          "layout": {
-            "row": "Row_1rlpg8g"
-          }
+          "validate": { "required": true }
         },
         {
           "label": "Minimum years of experience",
           "type": "number",
           "key": "eligibilityCriteria.minYearsExperience",
-          "defaultValue": "=originStandards.standards_of_eligibility.minimum_qualifications.minimum_years_experience",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_1cw2xva",
-          "layout": {
-            "row": "Row_0ia81yd"
-          }
+          "validate": { "required": true }
         },
         {
           "label": "Required certifications (one per line)",
           "type": "textarea",
-          "key": "eligibilityCriteria.requiredCertifications",
-          "description": "If none, leave empty.",
-          "defaultValue": "",
-          "id": "Field_1wx8ev3",
-          "layout": {
-            "row": "Row_0i0uazx"
-          }
+          "key": "eligibilityCriteria.requiredCertifications"
         },
         {
           "label": "Language requirements (one per line)",
           "type": "textarea",
-          "key": "eligibilityCriteria.languageRequirements",
-          "description": "Example: English (C1). German (B2 preferred).",
-          "defaultValue": "",
-          "id": "Field_19jtiao",
-          "layout": {
-            "row": "Row_0vrq1ma"
-          }
+          "key": "eligibilityCriteria.languageRequirements"
         },
         {
           "label": "Technical prerequisites (one per line)",
           "type": "textarea",
-          "key": "eligibilityCriteria.technicalPrerequisites",
-          "description": "Example: SQL, Python, Git.",
-          "defaultValue": "",
-          "id": "Field_03n7dme",
-          "layout": {
-            "row": "Row_1mjmhqi"
-          }
+          "key": "eligibilityCriteria.technicalPrerequisites"
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_0w2v1pp",
-      "layout": {
-        "row": "Row_17nj7rf"
-      }
+      "id": "Field_0w2v1pp"
     },
     {
       "label": "Disqualification rules",
@@ -267,60 +138,32 @@
         {
           "label": "Disqualify if application is incomplete",
           "type": "checkbox",
-          "key": "eligibilityCriteria.disqualifyIfIncompleteApplication",
-          "defaultValue": "=originStandards.standards_of_eligibility.disqualification_criteria.incomplete_application",
-          "id": "Field_1wshule",
-          "layout": {
-            "row": "Row_1z0ay01"
-          }
+          "key": "eligibilityCriteria.disqualifyIfIncompleteApplication"
         },
         {
           "label": "Disqualify if minimum qualifications are not met",
           "type": "checkbox",
-          "key": "eligibilityCriteria.disqualifyIfDoesNotMeetMinimumQualifications",
-          "defaultValue": "=originStandards.standards_of_eligibility.disqualification_criteria.does_not_meet_minimum_qualifications",
-          "id": "Field_17ere3w",
-          "layout": {
-            "row": "Row_0hrgzzn"
-          }
+          "key": "eligibilityCriteria.disqualifyIfDoesNotMeetMinimumQualifications"
         },
         {
           "label": "Disqualify if legal/compliance is not met",
           "type": "checkbox",
-          "key": "eligibilityCriteria.disqualifyIfLegalNonCompliance",
-          "defaultValue": "=originStandards.standards_of_eligibility.disqualification_criteria.legal_non_compliance",
-          "id": "Field_1r27upv",
-          "layout": {
-            "row": "Row_01bp0wx"
-          }
+          "key": "eligibilityCriteria.disqualifyIfLegalNonCompliance"
         },
         {
           "label": "Disqualify if false information is provided",
           "type": "checkbox",
-          "key": "eligibilityCriteria.disqualifyIfFalseInformation",
-          "defaultValue": "=originStandards.standards_of_eligibility.disqualification_criteria.false_information_provided",
-          "id": "Field_1jjdkh2",
-          "layout": {
-            "row": "Row_1vgbq86"
-          }
+          "key": "eligibilityCriteria.disqualifyIfFalseInformation"
         },
         {
           "label": "Disqualify if background/reference check is failed",
           "type": "checkbox",
-          "key": "eligibilityCriteria.disqualifyIfFailedBackgroundOrReferenceCheck",
-          "defaultValue": "=originStandards.standards_of_eligibility.disqualification_criteria.failed_background_or_reference_check",
-          "id": "Field_0ydf94h",
-          "layout": {
-            "row": "Row_1c0slrl"
-          }
+          "key": "eligibilityCriteria.disqualifyIfFailedBackgroundOrReferenceCheck"
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_0mz7r4c",
-      "layout": {
-        "row": "Row_1g6wh7e"
-      }
+      "id": "Field_0mz7r4c"
     },
     {
       "label": "Notes",
@@ -328,29 +171,17 @@
         {
           "label": "Eligibility notes / exceptions (optional)",
           "type": "textarea",
-          "key": "eligibilityCriteria.notes",
-          "description": "Example: Equivalent degrees accepted; internship counts partially as experience.",
-          "id": "Field_1uwtqxx",
-          "layout": {
-            "row": "Row_0063kgx"
-          }
+          "key": "eligibilityCriteria.notes"
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_01rzjjl",
-      "layout": {
-        "row": "Row_0pm3pgk"
-      }
+      "id": "Field_01rzjjl"
     }
   ],
   "type": "default",
   "id": "define-candidate-eligibility",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.8.0",
-  "exporter": {
-    "name": "Camunda Modeler",
-    "version": "5.41.0"
-  },
   "schemaVersion": 19
 }

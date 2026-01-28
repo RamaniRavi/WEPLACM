@@ -408,15 +408,6 @@
           "layout": {
             "row": "Row_1jr0hh5"
           }
-        },
-        {
-          "label": "Comment (required if rejected)",
-          "type": "textarea",
-          "key": "validation.comment",
-          "id": "Field_004f9u8",
-          "layout": {
-            "row": "Row_059ehw4"
-          }
         }
       ],
       "showOutline": true,
@@ -433,7 +424,7 @@
   "executionPlatformVersion": "8.8.0",
   "exporter": {
     "name": "Camunda Modeler",
-    "version": "5.41.0"
+    "version": "5.40.0"
   },
   "schemaVersion": 19
 }
