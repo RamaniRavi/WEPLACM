@@ -8,7 +8,6 @@
       "type": "text",
       "text": "Create a screening checklist based on eligibility criteria and rating standards. This checklist will be used for ATS screening and recruiter review."
     },
-
     {
       "type": "group",
       "label": "Context (read-only)",
@@ -16,27 +15,20 @@
         {
           "type": "textfield",
           "label": "Job title",
-          "key": "view_job_title",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.job_title"
+          "key": "hiringRequest.job_opening.job_title"
         },
         {
           "type": "textfield",
           "label": "Department",
-          "key": "view_department",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.department"
+          "key": "hiringRequest.job_opening.department"
         },
         {
           "type": "number",
           "label": "Openings",
-          "key": "view_openings",
-          "readOnly": true,
-          "defaultValue": "=hiringRequest.job_opening.number_of_openings"
+          "key": "hiringRequest.job_opening.number_of_openings"
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Eligibility summary (read-only reference)",
@@ -44,48 +36,35 @@
         {
           "type": "textfield",
           "label": "Min legal age",
-          "key": "view_min_age",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.minLegalWorkingAge"
+          "key": "eligibilityCriteria.minLegalWorkingAge"
         },
         {
           "type": "checkbox",
           "label": "Work authorization required",
-          "key": "view_work_auth",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.workAuthorizationRequired"
+          "key": "eligibilityCriteria.workAuthorizationRequired"
         },
         {
           "type": "textfield",
           "label": "Required education",
-          "key": "view_education",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.requiredEducationLevel"
+          "key": "eligibilityCriteria.requiredEducationLevel"
         },
         {
           "type": "number",
           "label": "Min years experience",
-          "key": "view_experience",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.minYearsExperience"
+          "key": "eligibilityCriteria.minYearsExperience"
         },
         {
           "type": "textarea",
           "label": "Technical prerequisites",
-          "key": "view_tech_prereq",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.technicalPrerequisites"
+          "key": "eligibilityCriteria.technicalPrerequisites"
         },
         {
           "type": "textarea",
           "label": "Language requirements",
-          "key": "view_lang_req",
-          "readOnly": true,
-          "defaultValue": "=eligibilityCriteria.languageRequirements"
+          "key": "eligibilityCriteria.languageRequirements"
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Rating framework summary (read-only reference)",
@@ -93,34 +72,25 @@
         {
           "type": "textfield",
           "label": "Scoring scale",
-          "key": "view_scoring_scale",
-          "readOnly": true,
-          "defaultValue": "=ratingCriteria.framework.scoringScale"
+          "key": "ratingCriteria.framework.scoringScale"
         },
         {
           "type": "textfield",
           "label": "Weighting method",
-          "key": "view_weighting_method",
-          "readOnly": true,
-          "defaultValue": "=ratingCriteria.framework.weightingMethod"
+          "key": "ratingCriteria.framework.weightingMethod"
         },
         {
           "type": "number",
           "label": "Minimum passing score",
-          "key": "view_min_passing_score",
-          "readOnly": true,
-          "defaultValue": "=ratingCriteria.framework.minimumPassingScore"
+          "key": "ratingCriteria.framework.minimumPassingScore"
         },
         {
           "type": "textfield",
           "label": "Overall recommendation options",
-          "key": "view_reco_options",
-          "readOnly": true,
-          "defaultValue": "=ratingCriteria.final.recommendationOptions"
+          "key": "ratingCriteria.final.recommendationOptions"
         }
       ]
     },
-
     {
       "type": "group",
       "label": "ATS checklist metadata (editable output)",
@@ -129,7 +99,6 @@
           "type": "textfield",
           "label": "Checklist name",
           "key": "atsChecklist.name",
-          "defaultValue": "=hiringRequest.job_opening.job_title",
           "validate": { "required": true }
         },
         {
@@ -137,7 +106,6 @@
           "label": "Checklist version",
           "key": "atsChecklist.version",
           "description": "Example: v1.0",
-          "defaultValue": "v1.0",
           "validate": { "required": true }
         },
         {
@@ -156,7 +124,6 @@
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Knockout screening questions (YES/NO rules)",
@@ -175,7 +142,6 @@
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Required documents checklist",
@@ -189,12 +155,10 @@
         {
           "type": "checkbox",
           "label": "Reject if documents are missing",
-          "key": "atsChecklist.rejectIfDocumentsMissing",
-          "defaultValue": true
+          "key": "atsChecklist.rejectIfDocumentsMissing"
         }
       ]
     },
-
     {
       "type": "group",
       "label": "ATS scorecard checklist",
@@ -203,7 +167,6 @@
           "type": "textfield",
           "label": "Score scale used in ATS",
           "key": "atsChecklist.scoreScale",
-          "defaultValue": "=ratingCriteria.framework.scoringScale",
           "validate": { "required": true }
         },
         {
@@ -216,19 +179,16 @@
           "type": "textarea",
           "label": "How to calculate final score (text)",
           "key": "atsChecklist.scoreCalculationRule",
-          "defaultValue": "=ratingCriteria.framework.overallScoreFormula",
           "validate": { "required": true }
         },
         {
           "type": "number",
           "label": "Minimum passing score (final)",
           "key": "atsChecklist.minimumPassingScore",
-          "defaultValue": "=ratingCriteria.framework.minimumPassingScore",
           "validate": { "required": true }
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Red flags and manual review",
@@ -236,8 +196,7 @@
         {
           "type": "textarea",
           "label": "Red flag indicators (one per line)",
-          "key": "atsChecklist.redFlagIndicators",
-          "defaultValue": "=ratingCriteria.final.redFlagIndicators"
+          "key": "atsChecklist.redFlagIndicators"
         },
         {
           "type": "textarea",
@@ -247,7 +206,6 @@
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Final decision rule",
@@ -263,12 +221,10 @@
           "type": "textfield",
           "label": "Recommendation options",
           "key": "atsChecklist.recommendationOptions",
-          "defaultValue": "=ratingCriteria.final.recommendationOptions",
           "validate": { "required": true }
         }
       ]
     },
-
     {
       "type": "group",
       "label": "Notes (optional)",
@@ -285,9 +241,5 @@
   "id": "create-ats-checklist",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.8.0",
-  "exporter": {
-    "name": "Camunda Modeler",
-    "version": "5.41.0"
-  },
   "schemaVersion": 19
 }
