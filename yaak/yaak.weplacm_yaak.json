@@ -1,0 +1,64 @@
+{
+  "yaakVersion": "2025.9.1",
+  "yaakSchema": 4,
+  "timestamp": "2026-01-31T19:32:39.573308",
+  "resources": {
+    "workspaces": [
+      {
+        "model": "workspace",
+        "id": "wk_Ch2FFsTaDm",
+        "createdAt": "2026-01-31T19:08:07.269049300",
+        "updatedAt": "2026-01-31T19:08:07.269051200",
+        "authentication": {},
+        "authenticationType": null,
+        "description": "",
+        "headers": [],
+        "name": "WEPLACM_yaak",
+        "encryptionKeyChallenge": null,
+        "settingValidateCertificates": true,
+        "settingFollowRedirects": true,
+        "settingRequestTimeout": 0
+      }
+    ],
+    "environments": [
+      {
+        "model": "environment",
+        "id": "ev_iUZufoMTxg",
+        "workspaceId": "wk_Ch2FFsTaDm",
+        "createdAt": "2026-01-31T19:08:07.378553300",
+        "updatedAt": "2026-01-31T19:08:07.378554",
+        "name": "Global Variables",
+        "public": false,
+        "base": true,
+        "parentModel": "workspace",
+        "parentId": null,
+        "variables": [],
+        "color": null,
+        "sortPriority": 0.0
+      }
+    ],
+    "folders": [],
+    "httpRequests": [],
+    "grpcRequests": [
+      {
+        "model": "grpc_request",
+        "id": "gr_fLCp9LMmCE",
+        "createdAt": "2026-01-31T19:08:44.145818200",
+        "updatedAt": "2026-01-31T19:28:48.526889500",
+        "workspaceId": "wk_Ch2FFsTaDm",
+        "folderId": null,
+        "authenticationType": null,
+        "authentication": {},
+        "description": "",
+        "message": "{\n  \"name\": \"receiveHiringRequest\",\n  \"correlationKey\": \"JOB-123\",\n  \"timeToLive\": 1000,\n  \"messageId\": \"hireReq-JOB-123-v2\",\n  \"variables\": \"{\\\"hiringRequest\\\":{\\\"company\\\":{\\\"company_Id\\\":\\\"C-001\\\",\\\"name\\\":\\\"WBIG\\\"},\\\"job_opening\\\":{\\\"job_id\\\":\\\"JOB-123\\\",\\\"job_title\\\":\\\"Data Engineer\\\",\\\"number_of_openings\\\":2,\\\"department\\\":\\\"IT\\\",\\\"location\\\":[\\\"Karlsruhe\\\",\\\"Remote\\\"],\\\"work_mode\\\":\\\"Hybrid\\\",\\\"job_description\\\":\\\"Build ETL pipelines.\\\",\\\"requirements\\\":{\\\"education\\\":\\\"BSc\\\",\\\"technical_skills\\\":[\\\"Python\\\",\\\"SQL\\\"],\\\"soft_skills\\\":[\\\"Communication\\\"],\\\"experience\\\":\\\"2+ years\\\",\\\"languages\\\":{\\\"required\\\":[\\\"English\\\"],\\\"preferred\\\":[\\\"German\\\"]},\\\"work_authorization\\\":\\\"EU\\\"},\\\"employment_details\\\":{\\\"job_type\\\":\\\"Full-time\\\",\\\"contract_type\\\":\\\"Permanent\\\",\\\"working_hours\\\":\\\"40h\\\",\\\"salary_range\\\":{\\\"min\\\":\\\"60000\\\",\\\"max\\\":\\\"80000\\\",\\\"currency\\\":\\\"EUR\\\"},\\\"benefits\\\":[\\\"Home office\\\"]},\\\"required_documents\\\":[\\\"CV\\\"],\\\"contact\\\":{\\\"recruiter_name\\\":\\\"Anna\\\",\\\"email\\\":\\\"anna@wbig.com\\\",\\\"phone\\\":\\\"+49...\\\"},\\\"posting_date\\\":\\\"2026-01-31\\\",\\\"closing_date\\\":\\\"2026-02-28\\\",\\\"starting_date\\\":\\\"2026-03-15\\\",\\\"duration\\\":\\\"\\\"}}}\"\n}\n",
+        "metadata": [],
+        "method": "PublishMessage",
+        "name": "receiveHiringRequest",
+        "service": "gateway_protocol.Gateway",
+        "sortPriority": -1769886524143.0,
+        "url": "http://141.26.156.184:26500"
+      }
+    ],
+    "websocketRequests": []
+  }
+}
