@@ -179,5 +179,6 @@ async def main():
         worker.include_router(router)
         await worker.work()
 
-if _name_ == "_main_":
+
+if __name__ == "__main__":
     asyncio.run(main())

@@ -1,136 +1,300 @@
 {
   "components": [
     {
+      "text": "# Define Candidate Rating Criteria",
       "type": "text",
-      "text": "# Define candidate rating criteria"
+      "id": "Field_rate_title",
+      "layout": {
+        "row": "Row_rate_title"
+      }
     },
     {
-      "type": "group",
-      "label": "Context (read-only)",
-      "showOutline": true,
+      "label": "Reference (read-only)",
       "components": [
         {
+          "label": "Position",
           "type": "textfield",
-          "label": "Job title",
-          "key": "hiringRequest.job_opening.job_title",
-          "readOnly": true
+          "key": "standardsOfEligibility.Position",
+          "id": "Field_rate_ref_position",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_rate_ref_position"
+          }
         },
         {
-          "type": "textfield",
           "label": "Department",
-          "key": "hiringRequest.job_opening.department",
-          "readOnly": true
-        },
-        {
           "type": "textfield",
-          "label": "Work mode",
-          "key": "hiringRequest.job_opening.work_mode",
-          "readOnly": true
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "Evaluation framework",
-      "showOutline": true,
-      "components": [
+          "key": "standardsOfEligibility.Department",
+          "id": "Field_rate_ref_department",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_rate_ref_department"
+          }
+        },
         {
+          "label": "Minimum Years of Experience",
+          "type": "number",
+          "key": "standardsOfEligibility.Minimum_Years_Of_Experience",
+          "id": "Field_rate_ref_min_exp",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_rate_ref_min_exp"
+          }
+        },
+        {
+          "label": "Required Education Level",
           "type": "textfield",
-          "label": "Evaluation stage",
-          "key": "ratingCriteria.stage",
-          "validate": { "required": true }
+          "key": "standardsOfEligibility.Required_Education_Level",
+          "id": "Field_rate_ref_edu",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_rate_ref_edu"
+          }
         },
         {
-          "type": "textfield",
-          "label": "Evaluator role",
-          "key": "ratingCriteria.evaluatorRole",
-          "validate": { "required": true }
-        },
-        {
-          "type": "number",
-          "label": "Score scale minimum",
-          "key": "0",
-          "validate": { "required": true }
-        },
-        {
-          "type": "number",
-          "label": "Score scale maximum",
-          "key": "5",
-          "validate": { "required": true, "min": 1 }
-        },
-        {
-          "type": "number",
-          "label": "Minimum passing score",
-          "key": "ratingCriteria.minimumPassingScore",
-          "validate": { "required": true, "min": 0 }
+          "label": "Language Requirements (list)",
+          "type": "textarea",
+          "key": "standardsOfEligibility.Language_Requirements",
+          "id": "Field_rate_ref_lang",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_rate_ref_lang"
+          }
         }
-      ]
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_rate_reference",
+      "layout": {
+        "row": "Row_group_rate_reference"
+      }
     },
     {
-      "type": "group",
-      "label": "Category weights (%)",
-      "showOutline": true,
-      "components": [
-        {
-          "type": "number",
-          "label": "Technical / skills",
-          "key": "ratingCriteria.weights.skills",
-          "validate": { "required": true, "min": 0, "max": 100 }
-        },
-        {
-          "type": "number",
-          "label": "Behavioral / soft skills",
-          "key": "ratingCriteria.weights.behavioral",
-          "validate": { "required": true, "min": 0, "max": 100 }
-        },
-        {
-          "type": "number",
-          "label": "Experience",
-          "key": "ratingCriteria.weights.experience",
-          "validate": { "required": true, "min": 0, "max": 100 }
-        },
-        {
-          "type": "number",
-          "label": "Interview",
-          "key": "ratingCriteria.weights.interview",
-          "validate": { "required": true, "min": 0, "max": 100 }
-        }
-      ]
+      "text": "Enter weights so the TOTAL equals 100. The process will validate the total automatically after you submit.",
+      "type": "text",
+      "id": "Field_rate_hint_total_100",
+      "layout": {
+        "row": "Row_rate_hint_total_100"
+      }
     },
     {
-      "type": "group",
-      "label": "Scoring guidance",
-      "showOutline": true,
+      "label": "Rating model settings (WEPLACE)",
       "components": [
         {
-          "type": "textarea",
-          "label": "Key evaluation criteria (one per line)",
-          "key": "ratingCriteria.criteria"
+          "label": "Total score maximum",
+          "type": "number",
+          "key": "ratingCriteria.totalScoreMax",
+          "id": "Field_rate_total_max",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_total_max"
+          }
         },
         {
+          "label": "Pass threshold score",
+          "type": "number",
+          "key": "ratingCriteria.passThreshold",
+          "id": "Field_rate_pass_threshold",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_pass_threshold"
+          }
+        },
+        {
+          "label": "Auto-reject threshold score",
+          "type": "number",
+          "key": "ratingCriteria.autoRejectThreshold",
+          "id": "Field_rate_reject_threshold",
+          "layout": {
+            "row": "Row_rate_reject_threshold"
+          }
+        },
+        {
+          "label": "Scoring scale notes (how to rate, general guidance)",
           "type": "textarea",
-          "label": "Red flags (one per line)",
-          "key": "ratingCriteria.redFlags"
+          "key": "ratingCriteria.scoringGuidance",
+          "id": "Field_rate_guidance",
+          "layout": {
+            "row": "Row_rate_guidance"
+          }
         }
-      ]
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_rate_settings",
+      "layout": {
+        "row": "Row_group_rate_settings"
+      }
     },
     {
-      "type": "group",
-      "label": "Final decision",
-      "showOutline": true,
+      "label": "Criteria weights (must total 100)",
       "components": [
         {
-          "type": "textarea",
-          "label": "Recommendation options (one per line)",
-          "key": "ratingCriteria.recommendations",
-          "validate": { "required": false }
+          "label": "Experience weight",
+          "type": "number",
+          "key": "ratingCriteria.experience.weight",
+          "id": "Field_rate_exp_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_exp_weight"
+          }
+        },
+        {
+          "label": "Education weight",
+          "type": "number",
+          "key": "ratingCriteria.education.weight",
+          "id": "Field_rate_edu_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_edu_weight"
+          }
+        },
+        {
+          "label": "Technical skills weight",
+          "type": "number",
+          "key": "ratingCriteria.technicalSkills.weight",
+          "id": "Field_rate_tech_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_tech_weight"
+          }
+        },
+        {
+          "label": "Language weight",
+          "type": "number",
+          "key": "ratingCriteria.languages.weight",
+          "id": "Field_rate_lang_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_lang_weight"
+          }
+        },
+        {
+          "label": "Certifications weight",
+          "type": "number",
+          "key": "ratingCriteria.certifications.weight",
+          "id": "Field_rate_cert_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_cert_weight"
+          }
+        },
+        {
+          "label": "Soft skills weight",
+          "type": "number",
+          "key": "ratingCriteria.softSkills.weight",
+          "id": "Field_rate_soft_weight",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_rate_soft_weight"
+          }
         }
-      ]
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_rate_weights",
+      "layout": {
+        "row": "Row_group_rate_weights"
+      }
+    },
+    {
+      "label": "Scoring rules",
+      "components": [
+        {
+          "label": "Experience score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.experience.rule",
+          "id": "Field_rate_exp_rule",
+          "layout": {
+            "row": "Row_rate_exp_rule"
+          }
+        },
+        {
+          "label": "Education score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.education.rule",
+          "id": "Field_rate_edu_rule",
+          "layout": {
+            "row": "Row_rate_edu_rule"
+          }
+        },
+        {
+          "label": "Technical skills score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.technicalSkills.rule",
+          "id": "Field_rate_tech_rule",
+          "layout": {
+            "row": "Row_rate_tech_rule"
+          }
+        },
+        {
+          "label": "Language score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.languages.rule",
+          "id": "Field_rate_lang_rule",
+          "layout": {
+            "row": "Row_rate_lang_rule"
+          }
+        },
+        {
+          "label": "Certifications score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.certifications.rule",
+          "id": "Field_rate_cert_rule",
+          "layout": {
+            "row": "Row_rate_cert_rule"
+          }
+        },
+        {
+          "label": "Soft skills score rule",
+          "type": "textarea",
+          "key": "ratingCriteria.softSkills.rule",
+          "id": "Field_rate_soft_rule",
+          "layout": {
+            "row": "Row_rate_soft_rule"
+          }
+        },
+        {
+          "label": "Disqualifying conditions (auto-reject if met)",
+          "type": "textarea",
+          "key": "ratingCriteria.disqualifiers",
+          "id": "Field_rate_disqualifiers",
+          "layout": {
+            "row": "Row_rate_disqualifiers"
+          }
+        }
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_rate_rules",
+      "layout": {
+        "row": "Row_group_rate_rules"
+      }
     }
   ],
   "type": "default",
-  "id": "define-candidate-rating-criteria",
+  "id": "define_candidate_rating_criteria",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.8.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.40.0"
+  },
   "schemaVersion": 19
 }

@@ -1,138 +1,332 @@
 {
   "components": [
     {
+      "text": "# Create ATS Checklist (Automation-ready)",
       "type": "text",
-      "text": "# Create ATS checklist"
+      "id": "Field_ats_title",
+      "layout": { "row": "Row_ats_title" }
     },
+
     {
-      "type": "text",
-      "text": "Review candidate rules and confirm ATS screening behavior."
-    },
-    {
-      "type": "group",
-      "label": "Context (read-only)",
-      "showOutline": true,
+      "label": "Reference eligibility (WBIG)",
       "components": [
         {
+          "label": "Position",
           "type": "textfield",
-          "label": "Job title",
-          "key": "hiringRequest.job_opening.job_title",
-          "readOnly": true
+          "key": "standardsOfEligibility.Position",
+          "id": "Field_ref_position",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_position" }
         },
         {
-          "type": "textfield",
           "label": "Department",
-          "key": "hiringRequest.job_opening.department",
-          "readOnly": true
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "Eligibility rules (reference)",
-      "showOutline": true,
-      "components": [
+          "type": "textfield",
+          "key": "standardsOfEligibility.Department",
+          "id": "Field_ref_department",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_department" }
+        },
         {
+          "label": "Minimum Legal Working Age",
           "type": "number",
-          "label": "Minimum legal working age",
-          "key": "candidateRules.eligibility.minLegalWorkingAge",
-          "readOnly": true
+          "key": "standardsOfEligibility.Minimum_Legal_Working_Age",
+          "id": "Field_ref_min_age",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_min_age" }
         },
         {
-          "type": "checkbox",
-          "label": "Work authorization required",
-          "key": "candidateRules.eligibility.workAuthorizationRequired",
-          "readOnly": true
-        },
-        {
+          "label": "Minimum Years of Experience",
           "type": "number",
-          "label": "Minimum years of experience",
-          "key": "candidateRules.eligibility.minYearsExperience",
-          "readOnly": true
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "Scoring rules (reference)",
-      "showOutline": true,
-      "components": [
-        {
-          "type": "number",
-          "label": "Score scale minimum",
-          "key": "candidateRules.rating.scaleMin",
-          "readOnly": true
+          "key": "standardsOfEligibility.Minimum_Years_Of_Experience",
+          "id": "Field_ref_min_exp",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_min_exp" }
         },
         {
-          "type": "number",
-          "label": "Score scale maximum",
-          "key": "candidateRules.rating.scaleMax",
-          "readOnly": true
+          "label": "Required Education Level",
+          "type": "textfield",
+          "key": "standardsOfEligibility.Required_Education_Level",
+          "id": "Field_ref_edu",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_edu" }
         },
         {
-          "type": "number",
-          "label": "Minimum passing score",
-          "key": "candidateRules.rating.minimumPassingScore",
-          "readOnly": true
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "ATS behavior (final)",
-      "showOutline": true,
-      "components": [
-        {
-          "type": "checkbox",
-          "label": "Auto-reject if eligibility rules fail",
-          "key": "atsChecklist.rejectOnEligibilityFail"
-        },
-        {
-          "type": "checkbox",
-          "label": "Auto-reject if score is below minimum",
-          "key": "atsChecklist.rejectOnLowScore"
-        },
-        {
-          "type": "checkbox",
-          "label": "Send borderline cases to manual review",
-          "key": "atsChecklist.manualReviewForBorderline"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "Documents",
-      "showOutline": true,
-      "components": [
-        {
+          "label": "Language Requirements (list)",
           "type": "textarea",
-          "label": "Required documents (one per line)",
-          "key": "atsChecklist.requiredDocuments",
-          "description": "Example: CV, Portfolio, Work permit proof."
+          "key": "standardsOfEligibility.Language_Requirements",
+          "id": "Field_ref_lang",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_lang" }
         },
         {
-          "type": "checkbox",
-          "label": "Reject if documents are missing",
-          "key": "atsChecklist.rejectIfDocumentsMissing"
+          "label": "Legal and Compliance (list)",
+          "type": "textarea",
+          "key": "standardsOfEligibility.Legal_And_Compliance",
+          "id": "Field_ref_legal",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_legal" }
+        },
+        {
+          "label": "Disqualification Criteria (list)",
+          "type": "textarea",
+          "key": "standardsOfEligibility.Disqualification_Criteria",
+          "id": "Field_ref_disq",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_disq" }
         }
-      ]
-    },
-    {
-      "type": "group",
-      "label": "Notes (optional)",
+      ],
       "showOutline": true,
+      "type": "group",
+      "id": "Field_group_ref_eligibility",
+      "layout": { "row": "Row_group_ref_eligibility" }
+    },
+
+    {
+      "label": "Reference rating model (WEPLACE)",
       "components": [
         {
-          "type": "textarea",
-          "label": "ATS notes",
-          "key": "atsChecklist.notes"
+          "label": "Total Score Maximum",
+          "type": "number",
+          "key": "ratingCriteria.totalScoreMax",
+          "id": "Field_ref_total_max",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_total_max" }
+        },
+        {
+          "label": "Pass Threshold Score",
+          "type": "number",
+          "key": "ratingCriteria.passThreshold",
+          "id": "Field_ref_pass_threshold",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_pass_threshold" }
+        },
+        {
+          "label": "Auto-Reject Threshold Score",
+          "type": "number",
+          "key": "ratingCriteria.autoRejectThreshold",
+          "id": "Field_ref_reject_threshold",
+          "readOnly": true,
+          "layout": { "row": "Row_ref_reject_threshold" }
         }
-      ]
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_ref_rating",
+      "layout": { "row": "Row_group_ref_rating" }
+    },
+
+    {
+      "label": "ATS automation checklist (WEPLACE output)",
+      "components": [
+        {
+          "label": "Checklist ID / Name",
+          "type": "textfield",
+          "key": "atsChecklist.id",
+          "id": "Field_out_id",
+          "validate": { "required": true },
+          "layout": { "row": "Row_out_id" }
+        },
+
+        {
+          "label": "Hard knockout rules (auto-reject)",
+          "type": "text",
+          "text": "Tick what the ATS should auto-reject on. Use numbers for strict cutoffs.",
+          "id": "Field_out_knockout_info",
+          "layout": { "row": "Row_out_knockout_info" }
+        },
+        {
+          "label": "Reject if under legal working age",
+          "type": "checkbox",
+          "key": "atsChecklist.knockout.rejectIfUnderAge",
+          "id": "Field_out_reject_under_age",
+          "layout": { "row": "Row_out_reject_under_age" }
+        },
+        {
+          "label": "Reject if missing work authorization (when required)",
+          "type": "checkbox",
+          "key": "atsChecklist.knockout.rejectIfMissingWorkAuthorization",
+          "id": "Field_out_reject_work_auth",
+          "layout": { "row": "Row_out_reject_work_auth" }
+        },
+        {
+          "label": "Reject if experience below minimum years",
+          "type": "checkbox",
+          "key": "atsChecklist.knockout.rejectIfExperienceBelowMinimum",
+          "id": "Field_out_reject_exp_min",
+          "layout": { "row": "Row_out_reject_exp_min" }
+        },
+        {
+          "label": "Reject if education requirement not met",
+          "type": "checkbox",
+          "key": "atsChecklist.knockout.rejectIfEducationNotMet",
+          "id": "Field_out_reject_edu",
+          "layout": { "row": "Row_out_reject_edu" }
+        },
+        {
+          "label": "Reject if language requirements not met",
+          "type": "checkbox",
+          "key": "atsChecklist.knockout.rejectIfLanguageNotMet",
+          "id": "Field_out_reject_lang",
+          "layout": { "row": "Row_out_reject_lang" }
+        },
+
+        {
+          "label": "Scoring settings (automation)",
+          "type": "text",
+          "text": "Set weights and minimums so the ATS can calculate a score automatically.",
+          "id": "Field_out_scoring_info",
+          "layout": { "row": "Row_out_scoring_info" }
+        },
+        {
+          "label": "Use scoring model",
+          "type": "checkbox",
+          "key": "atsChecklist.scoring.enabled",
+          "id": "Field_out_scoring_enabled",
+          "layout": { "row": "Row_out_scoring_enabled" }
+        },
+        {
+          "label": "Experience weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.experience",
+          "id": "Field_out_weight_experience",
+          "layout": { "row": "Row_out_weight_experience" }
+        },
+        {
+          "label": "Education weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.education",
+          "id": "Field_out_weight_education",
+          "layout": { "row": "Row_out_weight_education" }
+        },
+        {
+          "label": "Technical skills weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.technicalSkills",
+          "id": "Field_out_weight_technical",
+          "layout": { "row": "Row_out_weight_technical" }
+        },
+        {
+          "label": "Language weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.language",
+          "id": "Field_out_weight_language",
+          "layout": { "row": "Row_out_weight_language" }
+        },
+        {
+          "label": "Certifications weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.certifications",
+          "id": "Field_out_weight_certifications",
+          "layout": { "row": "Row_out_weight_certifications" }
+        },
+        {
+          "label": "Soft skills weight",
+          "type": "number",
+          "key": "atsChecklist.scoring.weights.softSkills",
+          "id": "Field_out_weight_soft",
+          "layout": { "row": "Row_out_weight_soft" }
+        },
+
+        {
+          "label": "Score thresholds (automation)",
+          "type": "text",
+          "text": "These thresholds guide automatic routing in later BPMN steps.",
+          "id": "Field_out_threshold_info",
+          "layout": { "row": "Row_out_threshold_info" }
+        },
+        {
+          "label": "Auto-reject if score below",
+          "type": "number",
+          "key": "atsChecklist.thresholds.autoRejectBelow",
+          "id": "Field_out_auto_reject_below",
+          "layout": { "row": "Row_out_auto_reject_below" }
+        },
+        {
+          "label": "Auto-pass if score at/above",
+          "type": "number",
+          "key": "atsChecklist.thresholds.autoPassAtOrAbove",
+          "id": "Field_out_auto_pass_above",
+          "layout": { "row": "Row_out_auto_pass_above" }
+        },
+        {
+          "label": "Manual review if score between (low)",
+          "type": "number",
+          "key": "atsChecklist.thresholds.manualReviewLow",
+          "id": "Field_out_manual_low",
+          "layout": { "row": "Row_out_manual_low" }
+        },
+        {
+          "label": "Manual review if score between (high)",
+          "type": "number",
+          "key": "atsChecklist.thresholds.manualReviewHigh",
+          "id": "Field_out_manual_high",
+          "layout": { "row": "Row_out_manual_high" }
+        },
+
+        {
+          "label": "Evidence collection (for validation)",
+          "type": "text",
+          "text": "Tick which items the ATS must capture or ask for.",
+          "id": "Field_out_evidence_info",
+          "layout": { "row": "Row_out_evidence_info" }
+        },
+        {
+          "label": "Collect ID / Age proof (if required)",
+          "type": "checkbox",
+          "key": "atsChecklist.evidence.collectAgeProof",
+          "id": "Field_out_age_proof",
+          "layout": { "row": "Row_out_age_proof" }
+        },
+        {
+          "label": "Collect work authorization proof",
+          "type": "checkbox",
+          "key": "atsChecklist.evidence.collectWorkAuthorizationProof",
+          "id": "Field_out_work_auth_proof",
+          "layout": { "row": "Row_out_work_auth_proof" }
+        },
+        {
+          "label": "Collect education proof",
+          "type": "checkbox",
+          "key": "atsChecklist.evidence.collectEducationProof",
+          "id": "Field_out_edu_proof",
+          "layout": { "row": "Row_out_edu_proof" }
+        },
+        {
+          "label": "Collect certifications proof",
+          "type": "checkbox",
+          "key": "atsChecklist.evidence.collectCertificationsProof",
+          "id": "Field_out_cert_proof",
+          "layout": { "row": "Row_out_cert_proof" }
+        },
+        {
+          "label": "Collect language proof",
+          "type": "checkbox",
+          "key": "atsChecklist.evidence.collectLanguageProof",
+          "id": "Field_out_lang_proof",
+          "layout": { "row": "Row_out_lang_proof" }
+        },
+
+        {
+          "label": "Notes (optional)",
+          "type": "textarea",
+          "key": "atsChecklist.notes",
+          "id": "Field_out_notes",
+          "layout": { "row": "Row_out_notes" }
+        }
+      ],
+      "showOutline": true,
+      "type": "group",
+      "id": "Field_group_ats_output",
+      "layout": { "row": "Row_group_ats_output" }
     }
   ],
   "type": "default",
-  "id": "create-ats-checklist",
+  "id": "create_ats_checklist",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.8.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.40.0"
+  },
   "schemaVersion": 19
 }

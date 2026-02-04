@@ -1,387 +1,362 @@
 {
   "components": [
     {
-      "text": "# Validate Received Hiring Request",
+      "text": "# Received Job Details",
       "type": "text",
-      "id": "Field_02mz0aj",
+      "id": "Field_01_title",
       "layout": {
-        "row": "Row_0dyrp1h"
+        "row": "Row_01_title"
       }
     },
     {
-      "label": "Company",
+      "label": "Job details",
       "components": [
         {
-          "label": "Company ID",
-          "type": "textfield",
-          "key": "hiringRequest.company.company_Id",
-          "id": "Field_0tte2ap",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0ob5xm2"
-          }
-        },
-        {
-          "label": "Company Name",
-          "type": "textfield",
-          "key": "hiringRequest.company.name",
-          "id": "Field_0gisqct",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0hof2ij"
-          }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_1gyupoq",
-      "layout": {
-        "row": "Row_0redgcj"
-      }
-    },
-    {
-      "label": "Job opening",
-      "components": [
-        {
-          "label": "Job ID",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.job_id",
-          "id": "Field_1696d6x",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0urfozr"
-          }
-        },
-        {
-          "label": "Job title",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.job_title",
-          "id": "Field_0sagm8k",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1u7jmai"
-          }
-        },
-        {
-          "label": "Number of openings",
+          "label": "Document Version",
           "type": "number",
-          "key": "hiringRequest.job_opening.number_of_openings",
-          "id": "Field_1o5nrvm",
-          "readonly": true,
+          "key": "jobDescription.Document_Version",
+          "id": "Field_doc_version",
+          "readOnly": true,
           "layout": {
-            "row": "Row_0mf7vdo"
+            "row": "Row_doc_version"
+          }
+        },
+        {
+          "label": "Job Title",
+          "type": "textfield",
+          "key": "jobDescription.Job_Title",
+          "id": "Field_job_title",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_job_title"
           }
         },
         {
           "label": "Department",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.department",
-          "id": "Field_04dn92a",
-          "readonly": true,
+          "key": "jobDescription.Department",
+          "id": "Field_department",
+          "readOnly": true,
           "layout": {
-            "row": "Row_1tzved7"
+            "row": "Row_department"
           }
         },
         {
-          "label": "Locations (list)",
-          "type": "textarea",
-          "key": "hiringRequest.job_opening.location",
-          "id": "Field_0l4uuzs",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1wuyne6"
-          }
-        },
-        {
-          "label": "Work mode",
+          "label": "Reports To",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.work_mode",
-          "id": "Field_08ywva3",
-          "readonly": true,
+          "key": "jobDescription.Reports_To",
+          "id": "Field_reports_to",
+          "readOnly": true,
           "layout": {
-            "row": "Row_00kyluq"
+            "row": "Row_reports_to"
           }
         },
         {
-          "label": "Job description",
-          "type": "textarea",
-          "key": "hiringRequest.job_opening.job_description",
-          "id": "Field_1oaui7a",
-          "readonly": true,
+          "label": "Employment Type",
+          "type": "textfield",
+          "key": "jobDescription.Employment_Type",
+          "id": "Field_employment_type",
+          "readOnly": true,
           "layout": {
-            "row": "Row_1vhy57a"
+            "row": "Row_employment_type"
           }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_05f9z82",
-      "layout": {
-        "row": "Row_08bzpr9"
-      }
-    },
-    {
-      "label": "Requirements",
-      "components": [
+        },
+        {
+          "label": "Location",
+          "type": "textfield",
+          "key": "jobDescription.Location",
+          "id": "Field_location",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_location"
+          }
+        },
+         {
+          "label": "Starting Date",
+          "type": "textfield",
+          "key": "jobDescription.Starting_Date",
+          "id": "Field_starting_date",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_location"
+          }
+        },
+        {
+          "label": "Salary Range",
+          "type": "textfield",
+          "key": "jobDescription.Salary_Range",
+          "id": "Field_salary_range",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_salary_range"
+          }
+        },
+        {
+          "label": "Bonus / Incentive Eligibility",
+          "type": "checkbox",
+          "key": "jobDescription.Bonus_Or_Incentive_Eligibility",
+          "id": "Field_bonus_eligibility",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_bonus_eligibility"
+          }
+        },
+        {
+          "label": "Role Summary",
+          "type": "textarea",
+          "key": "jobDescription.Role_Summary",
+          "id": "Field_role_summary",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_role_summary"
+          }
+        },
+        {
+          "label": "Primary Objectives",
+          "type": "textarea",
+          "key": "jobDescription.Primary_Objectives",
+          "id": "Field_primary_objectives",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_primary_objectives"
+          }
+        },
+        {
+          "label": "Decision Making Authority",
+          "type": "textarea",
+          "key": "jobDescription.Decision_Making_Authority",
+          "id": "Field_decision_making_authority",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_decision_making_authority"
+          }
+        },
+        {
+          "label": "Budget Responsibility",
+          "type": "textarea",
+          "key": "jobDescription.Budget_Responsibility",
+          "id": "Field_budget_responsibility",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_budget_responsibility"
+          }
+        },
+        {
+          "label": "Number of Direct Reports",
+          "type": "number",
+          "key": "jobDescription.Number_Of_Direct_Reports",
+          "id": "Field_num_direct_reports",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_num_direct_reports"
+          }
+        },
+        {
+          "label": "Core Responsibilities",
+          "type": "textarea",
+          "key": "jobDescription.Core_Responsibilities",
+          "id": "Field_core_responsibilities",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_core_responsibilities"
+          }
+        },
+        {
+          "label": "Secondary Responsibilities",
+          "type": "textarea",
+          "key": "jobDescription.Secondary_Responsibilities",
+          "id": "Field_secondary_responsibilities",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_secondary_responsibilities"
+          }
+        },
+        {
+          "label": "Cross Functional Interactions",
+          "type": "textarea",
+          "key": "jobDescription.Cross_Functional_Interactions",
+          "id": "Field_cross_functional_interactions",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_cross_functional_interactions"
+          }
+        },
+        {
+          "label": "Performance Metric",
+          "type": "textarea",
+          "key": "jobDescription.Performance_Metric",
+          "id": "Field_performance_metric",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_performance_metric"
+          }
+        },
         {
           "label": "Education",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.requirements.education",
-          "id": "Field_01qreq8",
-          "readonly": true,
+          "key": "jobDescription.Education",
+          "id": "Field_education",
+          "readOnly": true,
           "layout": {
-            "row": "Row_1luvz6b"
-          }
-        },
-        {
-          "label": "Technical skills (list)",
-          "type": "textarea",
-          "key": "hiringRequest.job_opening.requirements.technical_skills",
-          "id": "Field_14hlsdh",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0zwlv7e"
-          }
-        },
-        {
-          "label": "Soft skills (list)",
-          "type": "textarea",
-          "key": "hiringRequest.job_opening.requirements.soft_skills",
-          "id": "Field_04uxee0",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0ztvfw2"
+            "row": "Row_education"
           }
         },
         {
           "label": "Experience",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.requirements.experience",
-          "id": "Field_0mfo0dx",
-          "readonly": true,
+          "key": "jobDescription.Experience",
+          "id": "Field_experience",
+          "readOnly": true,
           "layout": {
-            "row": "Row_1du192g"
+            "row": "Row_experience"
           }
         },
         {
-          "label": "Languages required",
+          "label": "Technical Skills",
           "type": "textarea",
-          "key": "hiringRequest.job_opening.requirements.languages.required",
-          "id": "Field_0bdgpbs",
-          "readonly": true,
+          "key": "jobDescription.Technical_Skills",
+          "id": "Field_technical_skills",
+          "readOnly": true,
           "layout": {
-            "row": "Row_1ci43eo"
+            "row": "Row_technical_skills"
           }
         },
         {
-          "label": "Languages preferred",
+          "label": "Soft Skills",
           "type": "textarea",
-          "key": "hiringRequest.job_opening.requirements.languages.preferred",
-          "id": "Field_0l7jxu0",
-          "readonly": true,
+          "key": "jobDescription.Soft_Skills",
+          "id": "Field_soft_skills",
+          "readOnly": true,
           "layout": {
-            "row": "Row_0wasc31"
+            "row": "Row_soft_skills"
           }
         },
         {
-          "label": "Work authorization",
+          "label": "Certifications",
+          "type": "textarea",
+          "key": "jobDescription.Certifications",
+          "id": "Field_certifications",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_certifications"
+          }
+        },
+        {
+          "label": "Work Environment",
+          "type": "textarea",
+          "key": "jobDescription.Work_Environment",
+          "id": "Field_work_environment",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_work_environment"
+          }
+        },
+        {
+          "label": "Tools and Equipment",
+          "type": "textarea",
+          "key": "jobDescription.Tools_And_Equipment",
+          "id": "Field_tools_equipment",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_tools_equipment"
+          }
+        },
+        {
+          "label": "Travel Expectations",
+          "type": "textarea",
+          "key": "jobDescription.Travel_Expectations",
+          "id": "Field_travel_expectations",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_travel_expectations"
+          }
+        },
+        {
+          "label": "Physical Demands",
+          "type": "textarea",
+          "key": "jobDescription.Physical_Demands",
+          "id": "Field_physical_demands",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_physical_demands"
+          }
+        },
+        {
+          "label": "Career Path Opportunities",
+          "type": "textarea",
+          "key": "jobDescription.Career_Path_Opportunities",
+          "id": "Field_career_path",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_career_path"
+          }
+        },
+        {
+          "label": "Training Provided",
+          "type": "textarea",
+          "key": "jobDescription.Training_Provided",
+          "id": "Field_training_provided",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_training_provided"
+          }
+        },
+        {
+          "label": "Performance Review Cycle",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.requirements.work_authorization",
-          "id": "Field_14e84wl",
-          "readonly": true,
+          "key": "jobDescription.Performance_Review_Cycle",
+          "id": "Field_review_cycle",
+          "readOnly": true,
           "layout": {
-            "row": "Row_0i4cseh"
+            "row": "Row_review_cycle"
+          }
+        },
+        {
+          "label": "Equal Employment Opportunity Statement",
+          "type": "textarea",
+          "key": "jobDescription.Equal_Employment_Opportunity_Statement",
+          "id": "Field_eeo_statement",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_eeo_statement"
+          }
+        },
+        {
+          "label": "Employment Disclaimer",
+          "type": "textarea",
+          "key": "jobDescription.Employment_Disclaimer",
+          "id": "Field_employment_disclaimer",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_employment_disclaimer"
+          }
+        },
+        {
+          "label": "Document Approval Authority",
+          "type": "textfield",
+          "key": "jobDescription.Document_Apporval_Authority",
+          "id": "Field_approval_authority",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_approval_authority"
+          }
+        },
+        {
+          "label": "Number of Open Jobs With Same Description",
+          "type": "number",
+          "key": "jobDescription.Number_Of_Open_Jobs_With_Same_Description",
+          "id": "Field_open_jobs_same_desc",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_open_jobs_same_desc"
           }
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_08jo5im",
+      "id": "Field_group_job_details",
       "layout": {
-        "row": "Row_1ljcoc0"
-      }
-    },
-    {
-      "label": "Employment details",
-      "components": [
-        {
-          "label": "Job type",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.job_type",
-          "id": "Field_088hizl",
-          "readonly": true,
-          "layout": {
-            "row": "Row_00yhif1"
-          }
-        },
-        {
-          "label": "Contract type",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.contract_type",
-          "id": "Field_1vwy3ry",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0tlxmg0"
-          }
-        },
-        {
-          "label": "Working hours",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.working_hours",
-          "id": "Field_1uq5wni",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1n1vgdq"
-          }
-        },
-        {
-          "label": "Salary min",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.salary_range.min",
-          "id": "Field_0igyn1z",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0c7lqzu"
-          }
-        },
-        {
-          "label": "Salary max",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.salary_range.max",
-          "id": "Field_0ttjxd4",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1pnrzmc"
-          }
-        },
-        {
-          "label": "Currency",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.employment_details.salary_range.currency",
-          "id": "Field_0ic7hn8",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1wtxzeq"
-          }
-        },
-        {
-          "label": "Benefits (list)",
-          "type": "textarea",
-          "key": "hiringRequest.job_opening.employment_details.benefits",
-          "id": "Field_02tzarm",
-          "readonly": true,
-          "layout": {
-            "row": "Row_18iuwih"
-          }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_0sl1yti",
-      "layout": {
-        "row": "Row_1yygucf"
-      }
-    },
-    {
-      "label": "Required Documents",
-      "components": [
-        {
-          "label": "Documents list",
-          "type": "textarea",
-          "key": "hiringRequest.required_documents",
-          "id": "Field_0kb5qrq",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1h6d5it"
-          }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_0xxqo9u",
-      "layout": {
-        "row": "Row_1r5p2j4"
-      }
-    },
-    {
-      "label": "Contact and dates",
-      "components": [
-        {
-          "label": "Recruiter name",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.contact.recruiter_name",
-          "id": "Field_0orrr0z",
-          "readonly": true,
-          "layout": {
-            "row": "Row_03w0ytf"
-          }
-        },
-        {
-          "label": "Recruiter email",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.contact.email",
-          "id": "Field_03irzkd",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1alsmb3"
-          }
-        },
-        {
-          "label": "Recruiter phone",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.contact.phone",
-          "id": "Field_08jjzep",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0nl9vsw"
-          }
-        },
-        {
-          "label": "Posting date",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.posting_date",
-          "id": "Field_0ets5ue",
-          "readonly": true,
-          "layout": {
-            "row": "Row_089xh03"
-          }
-        },
-        {
-          "label": "Closing date",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.closing_date",
-          "id": "Field_1952stp",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0a9rd3a"
-          }
-        },
-        {
-          "label": "Starting date",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.starting_date",
-          "id": "Field_14dkmis",
-          "readonly": true,
-          "layout": {
-            "row": "Row_0h2s61k"
-          }
-        },
-        {
-          "label": "Duration",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.duratuion",
-          "id": "Field_1q5xf4i",
-          "readonly": true,
-          "layout": {
-            "row": "Row_1foeku9"
-          }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_0hbly80",
-      "layout": {
-        "row": "Row_12uef87"
+        "row": "Row_group_job_details"
       }
     },
     {
@@ -408,6 +383,12 @@
           "layout": {
             "row": "Row_1jr0hh5"
           }
+        },
+        {
+          "type": "textarea",
+          "label": "Comment (required if rejected)",
+          "key": "validation.missingInfo",
+          "validate": { "required": false }
         }
       ],
       "showOutline": true,

@@ -1,234 +1,253 @@
 {
   "components": [
     {
-      "text": "# Create job posting template",
+      "text": "# Create Job Posting Template",
       "type": "text",
-      "id": "Field_0odlxkx",
+      "id": "Field_posting_title",
       "layout": {
-        "row": "Row_0mqae67"
+        "row": "Row_posting_title"
       }
     },
     {
-      "label": "Request overview",
+      "label": "Reference job details (read-only)",
       "components": [
         {
-          "label": "Company name",
+          "label": "Job Title",
           "type": "textfield",
-          "key": "hiringRequest.company.name",
-          "id": "Field_0jz1q10",
+          "key": "jobDescription.Job_Title",
+          "id": "Field_ref_job_title",
           "readOnly": true,
           "layout": {
-            "row": "Row_1mwvyun"
-          }
-        },
-        {
-          "label": "Job title (from request)",
-          "type": "textfield",
-          "key": "hiringRequest.job_opening.job_title",
-          "id": "Field_01vydh6",
-          "readOnly": true,
-          "layout": {
-            "row": "Row_0fvs9dl"
-          }
-        },
-        {
-          "label": "Number of openings",
-          "type": "number",
-          "key": "hiringRequest.job_opening.number_of_openings",
-          "id": "Field_0n0vutw",
-          "readOnly": true,
-          "layout": {
-            "row": "Row_0nqs42g"
+            "row": "Row_ref_job_title"
           }
         },
         {
           "label": "Department",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.department",
-          "id": "Field_11nd3i0",
+          "key": "jobDescription.Department",
+          "id": "Field_ref_department",
           "readOnly": true,
           "layout": {
-            "row": "Row_0xvdfgz"
+            "row": "Row_ref_department"
           }
         },
         {
-          "label": "Work mode",
+          "label": "Location",
           "type": "textfield",
-          "key": "hiringRequest.job_opening.work_mode",
-          "id": "Field_16onelb",
+          "key": "jobDescription.Location",
+          "id": "Field_ref_location",
           "readOnly": true,
           "layout": {
-            "row": "Row_0gcsoa9"
+            "row": "Row_ref_location"
+          }
+        },
+        {
+          "label": "Employment Type",
+          "type": "textfield",
+          "key": "jobDescription.Employment_Type",
+          "id": "Field_ref_employment_type",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_employment_type"
+          }
+        },
+        {
+          "label": "Salary Range",
+          "type": "textfield",
+          "key": "jobDescription.Salary_Range",
+          "id": "Field_ref_salary_range",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_salary_range"
+          }
+        },
+        {
+          "label": "Role Summary",
+          "type": "textarea",
+          "key": "jobDescription.Role_Summary",
+          "id": "Field_ref_role_summary",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_role_summary"
+          }
+        },
+        {
+          "label": "Core Responsibilities",
+          "type": "textarea",
+          "key": "jobDescription.Core_Responsibilities",
+          "id": "Field_ref_core_responsibilities",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_core_responsibilities"
+          }
+        },
+        {
+          "label": "Education",
+          "type": "textfield",
+          "key": "jobDescription.Education",
+          "id": "Field_ref_education",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_education"
+          }
+        },
+        {
+          "label": "Experience",
+          "type": "textfield",
+          "key": "jobDescription.Experience",
+          "id": "Field_ref_experience",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_experience"
+          }
+        },
+        {
+          "label": "Technical Skills",
+          "type": "textarea",
+          "key": "jobDescription.Technical_Skills",
+          "id": "Field_ref_technical_skills",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_technical_skills"
+          }
+        },
+        {
+          "label": "Soft Skills",
+          "type": "textarea",
+          "key": "jobDescription.Soft_Skills",
+          "id": "Field_ref_soft_skills",
+          "readOnly": true,
+          "layout": {
+            "row": "Row_ref_soft_skills"
           }
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_1grtuh3",
+      "id": "Field_group_reference",
       "layout": {
-        "row": "Row_1s5vi6v"
+        "row": "Row_group_reference"
       }
     },
     {
-      "label": "Job posting template (editable)",
+      "label": "Job Posting Template ",
       "components": [
         {
           "label": "Posting title",
           "type": "textfield",
-          "key": "jobPostingTemplate.title",
+          "key": "jobPostingTemplate.postingTitle",
+          "id": "Field_posting_postingTitle",
           "validate": {
             "required": true
           },
-          "id": "Field_0ul2mvr",
-          "readOnly": false,
           "layout": {
-            "row": "Row_0g3y8mb"
+            "row": "Row_posting_postingTitle"
           }
         },
         {
-          "label": "Short summary (2–5 lines for the top of the job ad)",
+          "label": "Public role summary",
           "type": "textarea",
-          "key": "jobPostingTemplate.summary",
+          "key": "jobPostingTemplate.publicSummary",
+          "id": "Field_posting_publicSummary",
           "validate": {
             "required": true
           },
-          "id": "Field_15kpdzq",
-          "readOnly": false,
           "layout": {
-            "row": "Row_0u791pf"
+            "row": "Row_posting_publicSummary"
           }
         },
         {
-          "label": "Responsibilities (bullet style text)",
+          "label": "What you'll do (Responsibilities)",
           "type": "textarea",
           "key": "jobPostingTemplate.responsibilities",
-          "description": "Write responsibilities in bullet format (one per line).",
+          "id": "Field_posting_responsibilities",
           "validate": {
             "required": true
           },
-          "id": "Field_0yy9vuo",
-          "readOnly": false,
           "layout": {
-            "row": "Row_02ipchp"
+            "row": "Row_posting_responsibilities"
           }
         },
         {
-          "label": "Requirements (bullet style text)",
+          "label": "What we're looking for (Requirements)",
           "type": "textarea",
           "key": "jobPostingTemplate.requirements",
-          "description": "Include education, skills, experience, languages, and work authorization if relevant.",
+          "id": "Field_posting_requirements",
           "validate": {
             "required": true
           },
-          "id": "Field_1abcjdn",
-          "readOnly": false,
           "layout": {
-            "row": "Row_0yup73v"
-          }
-        },
-        {
-          "label": "Benefits (optional)",
-          "type": "textarea",
-          "key": "jobPostingTemplate.benefits",
-          "id": "Field_0yctwd0",
-          "readOnly": false,
-          "layout": {
-            "row": "Row_12c2zgs"
-          }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_1pq8zul",
-      "layout": {
-        "row": "Row_0fcv958"
-      }
-    },
-    {
-      "label": "Location, employment, salary",
-      "components": [
-        {
-          "label": "Location (text for the job ad)",
-          "type": "textfield",
-          "key": "jobPostingTemplate.locationText",
-          "description": "Example: Berlin, Germany / Remote / Hybrid.",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_0nr7ntk",
-          "readOnly": false,
-          "layout": {
-            "row": "Row_1nov16p"
-          }
-        },
-        {
-          "label": "Work mode (for posting)",
-          "type": "textfield",
-          "key": "jobPostingTemplate.workMode",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_1dos1ii",
-          "readOnly": false,
-          "layout": {
-            "row": "Row_0ptbjfl"
+            "row": "Row_posting_requirements"
           }
         },
         {
           "label": "Employment type",
           "type": "textfield",
-          "key": "jobPostingTemplate.employmentType",
-          "validate": {
-            "required": true
-          },
-          "id": "Field_1n2qaq0",
-          "readOnly": false,
+          "key": "jobPostingTemplate.employmentTypePublic",
+          "id": "Field_posting_employmentTypePublic",
           "layout": {
-            "row": "Row_13s9pdd"
+            "row": "Row_posting_employmentTypePublic"
           }
         },
         {
-          "label": "Salary (text for job ad, optional)",
+          "label": "Work Arrangement (Onsite / Hybrid / Remote)",
           "type": "textfield",
-          "key": "jobPostingTemplate.salaryText",
-          "id": "Field_016x75b",
-          "readOnly": false,
+          "key": "standardsOfEligibility.Work_Arrangement",
+          "id": "Field_posting_workMode",
           "layout": {
-            "row": "Row_0uzrmrd"
+            "row": "Row_posting_workMode"
           }
-        }
-      ],
-      "showOutline": true,
-      "type": "group",
-      "id": "Field_0vfj04s",
-      "layout": {
-        "row": "Row_0urrf4j"
-      }
-    },
-    {
-      "label": "Publishing instructions",
-      "components": [
+        },
         {
-          "label": "Ready to publish online?",
-          "type": "checkbox",
-          "key": "jobPostingTemplate.publishOnline",
-          "id": "Field_1p2brjy",
-          "defaultValue": false,
+          "label": "Location ",
+          "type": "textfield",
+          "key": "jobPostingTemplate.locationPublic",
+          "id": "Field_posting_locationPublic",
           "layout": {
-            "row": "Row_1ocbm3l"
+            "row": "Row_posting_locationPublic"
+          }
+        },
+        {
+          "label": "How to apply (URL or instructions)",
+          "type": "textarea",
+          "key": "jobPostingTemplate.howToApply",
+          "id": "Field_posting_howToApply",
+          "validate": {
+            "required": true
+          },
+          "layout": {
+            "row": "Row_posting_howToApply"
+          }
+        },
+        {
+          "label": "Posting language",
+          "type": "textfield",
+          "key": "jobPostingTemplate.language",
+          "id": "Field_posting_language",
+          "layout": {
+            "row": "Row_posting_language"
+          }
+        },
+        {
+          "label": "Disclaimer (public)",
+          "type": "textarea",
+          "key": "jobPostingTemplate.disclaimer",
+          "id": "Field_posting_disclaimer",
+          "layout": {
+            "row": "Row_posting_disclaimer"
           }
         }
       ],
       "showOutline": true,
       "type": "group",
-      "id": "Field_0d6jhmm",
+      "id": "Field_group_posting",
       "layout": {
-        "row": "Row_1gk7bd7"
+        "row": "Row_group_posting"
       }
     }
   ],
   "type": "default",
-  "id": "create-job-posting-template",
+  "id": "create_job_posting_template_for_all_positions",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.8.0",
   "exporter": {

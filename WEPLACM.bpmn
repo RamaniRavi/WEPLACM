@@ -58,7 +58,7 @@
     <bpmn:sequenceFlow id="Flow_0608973" sourceRef="Activity_0euezky" targetRef="Activity_01uzpu0" />
     <bpmn:sequenceFlow id="Flow_05loifg" sourceRef="Gateway_1j53h6q" targetRef="Activity_0ijipzj" />
     <bpmn:sequenceFlow id="Flow_0uz3h60" sourceRef="Activity_186e1wx" targetRef="Gateway_0cvd1mi" />
-    <bpmn:sequenceFlow id="Flow_0qmz57b" name="passed" sourceRef="Gateway_0cvd1mi" targetRef="Activity_08mkgpa">
+    <bpmn:sequenceFlow id="Flow_0qmz57b" name="passed" sourceRef="Gateway_0cvd1mi" targetRef="Activity_1bz68tr">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=validation.approved = true</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0jhpkm3" sourceRef="Activity_0qbgf70" targetRef="Event_1tzwe9q" />
@@ -92,7 +92,7 @@
     <bpmn:dataObject id="DataObject_152405v" />
     <bpmn:startEvent id="Event_1avabsy" name="Hiring Request">
       <bpmn:extensionElements />
-      <bpmn:outgoing>Flow_0vql155</bpmn:outgoing>
+      <bpmn:outgoing>Flow_147i634</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1mscsda" messageRef="Message_3opot9u" />
     </bpmn:startEvent>
     <bpmn:subProcess id="Activity_0qbgf70" name="Handle payment process">
@@ -212,7 +212,7 @@
     <bpmn:userTask id="Activity_1gw6lzx" name="Define candidate rating criteria">
       <bpmn:extensionElements>
         <zeebe:userTask />
-        <zeebe:formDefinition formId="define-candidate-rating-criteria" />
+        <zeebe:formDefinition formId="define_candidate_rating_criteria" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1nay79c</bpmn:incoming>
       <bpmn:outgoing>Flow_1pfobni</bpmn:outgoing>
@@ -223,7 +223,7 @@
     <bpmn:userTask id="Activity_1r32xq8" name="Define candidate  eligibility criteria">
       <bpmn:extensionElements>
         <zeebe:userTask />
-        <zeebe:formDefinition formId="define-candidate-eligibility" />
+        <zeebe:formDefinition formId="define_candidate_eligibility_criteria" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_028fok6</bpmn:incoming>
       <bpmn:outgoing>Flow_01yz7sv</bpmn:outgoing>
@@ -368,26 +368,10 @@
     </bpmn:userTask>
     <bpmn:dataObjectReference id="DataObjectReference_0kywcw0" name="standards of eligiblity" dataObjectRef="DataObject_0v427gd" />
     <bpmn:dataObject id="DataObject_0v427gd" />
-    <bpmn:userTask id="Activity_08mkgpa" name="create job posting template for all the job positions">
-      <bpmn:extensionElements>
-        <zeebe:userTask />
-        <zeebe:formDefinition formId="create-job-posting-template" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0qmz57b</bpmn:incoming>
-      <bpmn:outgoing>Flow_1iv5lfq</bpmn:outgoing>
-      <bpmn:dataOutputAssociation id="DataOutputAssociation_0s917wy">
-        <bpmn:targetRef>DataStoreReference_0xmv9at</bpmn:targetRef>
-      </bpmn:dataOutputAssociation>
-    </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_0cvd1mi" name="Validation passed?">
-      <bpmn:incoming>Flow_0uz3h60</bpmn:incoming>
-      <bpmn:outgoing>Flow_0qmz57b</bpmn:outgoing>
-      <bpmn:outgoing>Flow_0wu770h</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
     <bpmn:userTask id="Activity_0euezky" name="Create ATS checklist">
       <bpmn:extensionElements>
         <zeebe:userTask />
-        <zeebe:formDefinition formId="create-ats-checklist" />
+        <zeebe:formDefinition formId="create_ats_checklist" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0donjhu</bpmn:incoming>
       <bpmn:outgoing>Flow_0608973</bpmn:outgoing>
@@ -407,7 +391,7 @@
     <bpmn:userTask id="Activity_01uzpu0" name="Create Job profile">
       <bpmn:extensionElements>
         <zeebe:userTask />
-        <zeebe:formDefinition formId="create-job-profile" />
+        <zeebe:formDefinition formId="create_job_profile" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0608973</bpmn:incoming>
       <bpmn:outgoing>Flow_161692r</bpmn:outgoing>
@@ -420,44 +404,6 @@
         <bpmn:targetRef>DataStoreReference_0znsggf</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:userTask>
-    <bpmn:userTask id="Activity_186e1wx" name="validate received hiring request">
-      <bpmn:extensionElements>
-        <zeebe:userTask />
-        <zeebe:formDefinition formId="validate_received_hiring_request" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0btuoln</bpmn:incoming>
-      <bpmn:outgoing>Flow_0uz3h60</bpmn:outgoing>
-      <bpmn:property id="Property_0x543ss" name="__targetRef_placeholder" />
-      <bpmn:dataInputAssociation id="DataInputAssociation_1w7aygc">
-        <bpmn:sourceRef>DataStoreReference_0xmv9at</bpmn:sourceRef>
-        <bpmn:targetRef>Property_0x543ss</bpmn:targetRef>
-      </bpmn:dataInputAssociation>
-    </bpmn:userTask>
-    <bpmn:serviceTask id="Activity_01n9mer" name="Connect to WEPLACM DB" zeebe:modelerTemplate="io.camunda.connectors.Jdbc.v1" zeebe:modelerTemplateVersion="3" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTMiIGhlaWdodD0iNTEyIiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgNTEzIDUxMiI+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj4KICAgIDxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik00MjIuMDY5IDQxNi45OTVWMjUzLjA0NGgtMjQuNzU2VjQ0NC4zMmg5OS4wMjR2LTI3LjMyNWgtNzQuMjY4Wm0tNzQuMjY4LTE2My45NTFoLTQ5LjUxMmMtNi41NjUgMC0xMi44NjIgMi44NzktMTcuNTA1IDguMDA0LTQuNjQzIDUuMTI0LTcuMjUxIDEyLjA3NC03LjI1MSAxOS4zMjJ2MTM2LjYyNWMwIDcuMjQ3IDIuNjA4IDE0LjE5NyA3LjI1MSAxOS4zMjEgNC42NDMgNS4xMjUgMTAuOTQgOC4wMDQgMTcuNTA1IDguMDA0aDEyLjM3OHYyNy4zMjVjMCA3LjI0NyAyLjYwOCAxNC4xOTcgNy4yNTEgMTkuMzIxIDQuNjQzIDUuMTI1IDEwLjk0IDguMDA0IDE3LjUwNSA4LjAwNGgyNC43NTZ2LTI3LjMyNWgtMjQuNzU2VjQ0NC4zMmgxMi4zNzhjNi41NjYgMCAxMi44NjMtMi44NzkgMTcuNTA1LTguMDA0IDQuNjQzLTUuMTI0IDcuMjUxLTEyLjA3NCA3LjI1MS0xOS4zMjFWMjgwLjM3YzAtNy4yNDgtMi42MDgtMTQuMTk4LTcuMjUxLTE5LjMyMi00LjY0Mi01LjEyNS0xMC45MzktOC4wMDQtMTcuNTA1LTguMDA0Wm0tNDkuNTEyIDE2My45NTFWMjgwLjM3aDQ5LjUxMnYxMzYuNjI1aC00OS41MTJabS03NC4yNjggMjcuMzI1aC03NC4yNjh2LTI3LjMyNWg3NC4yNjh2LTU0LjY1aC00OS41MTJjLTYuNTY2IDAtMTIuODYyLTIuODc5LTE3LjUwNS04LjAwNC00LjY0My01LjEyNC03LjI1MS0xMi4wNzQtNy4yNTEtMTkuMzIxdi01NC42NWMwLTcuMjQ4IDIuNjA4LTE0LjE5OCA3LjI1MS0xOS4zMjIgNC42NDMtNS4xMjUgMTAuOTM5LTguMDA0IDE3LjUwNS04LjAwNGg3NC4yNjh2MjcuMzI2aC03NC4yNjh2NTQuNjVoNDkuNTEyYzYuNTY2IDAgMTIuODYzIDIuODc4IDE3LjUwNSA4LjAwMyA0LjY0MyA1LjEyNCA3LjI1MSAxMi4wNzUgNy4yNTEgMTkuMzIydjU0LjY1YzAgNy4yNDctMi42MDggMTQuMTk3LTcuMjUxIDE5LjMyMS00LjY0MiA1LjEyNS0xMC45MzkgOC4wMDQtMTcuNTA1IDguMDA0WiIvPgogICAgPHBhdGggZmlsbD0iI0M2MjlDRCIgZD0iTTE2MC42OTUgMTMuMDMyYy02My4wNjYgMC0xMzAuOTQzIDE2LjQ1LTEzMC45NDMgNTIuNTU3djIzNi41MDZjMCAyMi4wNyAyNS40MDMgMzYuNzYyIDU5LjUyIDQ0Ljg3di0yNi44ODJjLTIzLjczNi02LjIxLTM1LjA2LTE1LjAxOS0zNS43MTItMTcuOTg4di00Ni45MzhjMTcuNzggOS44NDIgMTcuNzMzIDkuMTg1IDQ1LjQyNCAxMi4wMDl2LTI2LjI0N2MtNDYuMTYyLTQuOTU5LTQzLjk2NS0xMS44OTktNDUuNDI0LTE3LjY2MXYtNDYuOTM3YzI1LjMzIDE0LjAyNSA2Ny4xNjkgMjAuNjU5IDEwNy4xMzUgMjAuNjU5IDYzLjA2NiAwIDEzMC45NDMtMTYuNDUxIDEzMC45NDMtNTIuNTU3di03OC44NGMtLjAwOS0zNi4xMDctNjcuODgxLTUyLjU1LTEzMC45NDMtNTIuNTVaTTUzLjU0MiA2NS43ODdjMS44MTMtNy4yOTUgMzcuNTE0LTI2LjQ3NyAxMDcuMTUzLTI2LjQ3NyA2OS4wMTQgMCAxMDQuNjk0IDE4Ljg0MyAxMDcuMDk3IDI2LjI3OS0yLjQwMyA3LjQzNS0zOC4wODMgMjYuMjc4LTEwNy4wOTcgMjYuMjc4LTY5LjYzOSAwLTEwNS4zMzktMTkuMTgzLTEwNy4xNTMtMjYuMDhabTIxNC4yODggNzguNDdjLTEuOTEyIDcuMzItMzcuNjAxIDI2LjQ0Ni0xMDcuMTM1IDI2LjQ0Ni02OS42MzkgMC0xMDUuMzM5LTE5LjE4NC0xMDcuMTM1LTI2LjI3OVY5Ny40ODdjMjUuMzMgMTQuMDI1IDY3LjE2OSAyMC42NTkgMTA3LjEzNSAyMC42NTkgMzkuOTY2IDAgODEuODA1LTYuNjM0IDEwNy4xMzUtMjAuNjU5djQ2Ljc3WiIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxjbGlwUGF0aCBpZD0iYSI+CiAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yOS43NTQgNmg0NTIuOTkxdjUwMEgyOS43NTR6Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KPC9zdmc+Cg==">
-      <bpmn:extensionElements>
-        <zeebe:taskDefinition type="io.camunda:connector-jdbc:1" retries="3" />
-        <zeebe:ioMapping>
-          <zeebe:input source="POSTGRESQL" target="database" />
-          <zeebe:input source="detailed" target="connection.authType" />
-          <zeebe:input source="141.26.156.184" target="connection.host" />
-          <zeebe:input source="5432" target="connection.port" />
-          <zeebe:input source="user" target="connection.username" />
-          <zeebe:input source="password" target="connection.password" />
-          <zeebe:input source="my_database" target="connection.databaseName" />
-          <zeebe:input source="=true" target="data.returnResults" />
-          <zeebe:input source="SELECT * FROM job_profiles;" target="data.query" />
-        </zeebe:ioMapping>
-        <zeebe:taskHeaders>
-          <zeebe:header key="elementTemplateVersion" value="3" />
-          <zeebe:header key="elementTemplateId" value="io.camunda.connectors.Jdbc.v1" />
-          <zeebe:header key="resultVariable" value="jobProfilesDB" />
-          <zeebe:header key="resultExpression" value="={&#10;  jobProfilesDB: resultSet&#10;}" />
-          <zeebe:header key="retryBackoff" value="PT0S" />
-        </zeebe:taskHeaders>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0vql155</bpmn:incoming>
-      <bpmn:outgoing>Flow_0btuoln</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:dataObjectReference id="DataObjectReference_0kkgps2" name="candidate rating standards" dataObjectRef="DataObject_1ftfy86" />
     <bpmn:dataObject id="DataObject_1ftfy86" />
     <bpmn:sequenceFlow id="Flow_0jiy23o" sourceRef="Activity_1jxhf5f" targetRef="Gateway_0x8f3td" />
@@ -582,16 +528,6 @@
     <bpmn:sequenceFlow id="Flow_1fmiscn" name="No" sourceRef="Gateway_0x8f3td" targetRef="Activity_0b8fiu1">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=applicants_found=0</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0wu770h" name="faild" sourceRef="Gateway_0cvd1mi" targetRef="Event_0j4tupo">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=validation.approved = false</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:endEvent id="Event_0j4tupo" name="Send missing requirements to WBIG">
-      <bpmn:extensionElements>
-        <zeebe:taskDefinition type="sendJobMissingInformation" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0wu770h</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0xhjhn0" />
-    </bpmn:endEvent>
     <bpmn:serviceTask id="Activity_0b8fiu1" name="check if current date is 10 days less than joining date">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="check_date_difference_10days" />
@@ -607,7 +543,6 @@
       <bpmn:incoming>Flow_15kqkov</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0vf9c05" />
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0vql155" sourceRef="Event_1avabsy" targetRef="Activity_01n9mer" />
     <bpmn:sequenceFlow id="Flow_09qdgxj" sourceRef="Activity_1johu20" targetRef="Gateway_0dfyvgk" />
     <bpmn:subProcess id="Activity_1johu20" name="Sort candidates by notice period">
       <bpmn:extensionElements />
@@ -755,7 +690,7 @@
     </bpmn:subProcess>
     <bpmn:sendTask id="Activity_0g9ndb3" name="Send shortlisted candidate profiles to WBIG">
       <bpmn:extensionElements>
-        <zeebe:taskDefinition type="send-cv-with-rating" />
+        <zeebe:taskDefinition type="sendShortlistedCandidatesWBIG" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0gium0l</bpmn:incoming>
       <bpmn:outgoing>Flow_0o01rnd</bpmn:outgoing>
@@ -768,11 +703,79 @@
     <bpmn:sequenceFlow id="Flow_0kqo96s" name="Yes" sourceRef="Gateway_0x8f3td" targetRef="Activity_06jj9ca">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=applicants_found &gt; 0</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Activity_0ib9is9" name="Store Job Opening">
+    <bpmn:userTask id="Activity_08mkgpa" name="create job posting template for all the job positions">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:formDefinition formId="create_job_posting_template_for_all_positions" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1tyufmm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1iv5lfq</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0s917wy">
+        <bpmn:targetRef>DataStoreReference_0xmv9at</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_01n9mer" name="Connect to WEPLACM DB" zeebe:modelerTemplate="io.camunda.connectors.Jdbc.v1" zeebe:modelerTemplateVersion="3" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTMiIGhlaWdodD0iNTEyIiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgNTEzIDUxMiI+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj4KICAgIDxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik00MjIuMDY5IDQxNi45OTVWMjUzLjA0NGgtMjQuNzU2VjQ0NC4zMmg5OS4wMjR2LTI3LjMyNWgtNzQuMjY4Wm0tNzQuMjY4LTE2My45NTFoLTQ5LjUxMmMtNi41NjUgMC0xMi44NjIgMi44NzktMTcuNTA1IDguMDA0LTQuNjQzIDUuMTI0LTcuMjUxIDEyLjA3NC03LjI1MSAxOS4zMjJ2MTM2LjYyNWMwIDcuMjQ3IDIuNjA4IDE0LjE5NyA3LjI1MSAxOS4zMjEgNC42NDMgNS4xMjUgMTAuOTQgOC4wMDQgMTcuNTA1IDguMDA0aDEyLjM3OHYyNy4zMjVjMCA3LjI0NyAyLjYwOCAxNC4xOTcgNy4yNTEgMTkuMzIxIDQuNjQzIDUuMTI1IDEwLjk0IDguMDA0IDE3LjUwNSA4LjAwNGgyNC43NTZ2LTI3LjMyNWgtMjQuNzU2VjQ0NC4zMmgxMi4zNzhjNi41NjYgMCAxMi44NjMtMi44NzkgMTcuNTA1LTguMDA0IDQuNjQzLTUuMTI0IDcuMjUxLTEyLjA3NCA3LjI1MS0xOS4zMjFWMjgwLjM3YzAtNy4yNDgtMi42MDgtMTQuMTk4LTcuMjUxLTE5LjMyMi00LjY0Mi01LjEyNS0xMC45MzktOC4wMDQtMTcuNTA1LTguMDA0Wm0tNDkuNTEyIDE2My45NTFWMjgwLjM3aDQ5LjUxMnYxMzYuNjI1aC00OS41MTJabS03NC4yNjggMjcuMzI1aC03NC4yNjh2LTI3LjMyNWg3NC4yNjh2LTU0LjY1aC00OS41MTJjLTYuNTY2IDAtMTIuODYyLTIuODc5LTE3LjUwNS04LjAwNC00LjY0My01LjEyNC03LjI1MS0xMi4wNzQtNy4yNTEtMTkuMzIxdi01NC42NWMwLTcuMjQ4IDIuNjA4LTE0LjE5OCA3LjI1MS0xOS4zMjIgNC42NDMtNS4xMjUgMTAuOTM5LTguMDA0IDE3LjUwNS04LjAwNGg3NC4yNjh2MjcuMzI2aC03NC4yNjh2NTQuNjVoNDkuNTEyYzYuNTY2IDAgMTIuODYzIDIuODc4IDE3LjUwNSA4LjAwMyA0LjY0MyA1LjEyNCA3LjI1MSAxMi4wNzUgNy4yNTEgMTkuMzIydjU0LjY1YzAgNy4yNDctMi42MDggMTQuMTk3LTcuMjUxIDE5LjMyMS00LjY0MiA1LjEyNS0xMC45MzkgOC4wMDQtMTcuNTA1IDguMDA0WiIvPgogICAgPHBhdGggZmlsbD0iI0M2MjlDRCIgZD0iTTE2MC42OTUgMTMuMDMyYy02My4wNjYgMC0xMzAuOTQzIDE2LjQ1LTEzMC45NDMgNTIuNTU3djIzNi41MDZjMCAyMi4wNyAyNS40MDMgMzYuNzYyIDU5LjUyIDQ0Ljg3di0yNi44ODJjLTIzLjczNi02LjIxLTM1LjA2LTE1LjAxOS0zNS43MTItMTcuOTg4di00Ni45MzhjMTcuNzggOS44NDIgMTcuNzMzIDkuMTg1IDQ1LjQyNCAxMi4wMDl2LTI2LjI0N2MtNDYuMTYyLTQuOTU5LTQzLjk2NS0xMS44OTktNDUuNDI0LTE3LjY2MXYtNDYuOTM3YzI1LjMzIDE0LjAyNSA2Ny4xNjkgMjAuNjU5IDEwNy4xMzUgMjAuNjU5IDYzLjA2NiAwIDEzMC45NDMtMTYuNDUxIDEzMC45NDMtNTIuNTU3di03OC44NGMtLjAwOS0zNi4xMDctNjcuODgxLTUyLjU1LTEzMC45NDMtNTIuNTVaTTUzLjU0MiA2NS43ODdjMS44MTMtNy4yOTUgMzcuNTE0LTI2LjQ3NyAxMDcuMTUzLTI2LjQ3NyA2OS4wMTQgMCAxMDQuNjk0IDE4Ljg0MyAxMDcuMDk3IDI2LjI3OS0yLjQwMyA3LjQzNS0zOC4wODMgMjYuMjc4LTEwNy4wOTcgMjYuMjc4LTY5LjYzOSAwLTEwNS4zMzktMTkuMTgzLTEwNy4xNTMtMjYuMDhabTIxNC4yODggNzguNDdjLTEuOTEyIDcuMzItMzcuNjAxIDI2LjQ0Ni0xMDcuMTM1IDI2LjQ0Ni02OS42MzkgMC0xMDUuMzM5LTE5LjE4NC0xMDcuMTM1LTI2LjI3OVY5Ny40ODdjMjUuMzMgMTQuMDI1IDY3LjE2OSAyMC42NTkgMTA3LjEzNSAyMC42NTkgMzkuOTY2IDAgODEuODA1LTYuNjM0IDEwNy4xMzUtMjAuNjU5djQ2Ljc3WiIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxjbGlwUGF0aCBpZD0iYSI+CiAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yOS43NTQgNmg0NTIuOTkxdjUwMEgyOS43NTR6Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:connector-jdbc:1" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="POSTGRESQL" target="database" />
+          <zeebe:input source="detailed" target="connection.authType" />
+          <zeebe:input source="141.26.156.184" target="connection.host" />
+          <zeebe:input source="5432" target="connection.port" />
+          <zeebe:input source="user" target="connection.username" />
+          <zeebe:input source="password" target="connection.password" />
+          <zeebe:input source="my_database" target="connection.databaseName" />
+          <zeebe:input source="=true" target="data.returnResults" />
+          <zeebe:input source="SELECT * FROM job_profiles;" target="data.query" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="elementTemplateVersion" value="3" />
+          <zeebe:header key="elementTemplateId" value="io.camunda.connectors.Jdbc.v1" />
+          <zeebe:header key="resultVariable" value="jobProfilesDB" />
+          <zeebe:header key="resultExpression" value="={&#10;  jobProfilesDB: resultSet&#10;}" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_147i634</bpmn:incoming>
+      <bpmn:outgoing>Flow_0btuoln</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_186e1wx" name="validate received hiring request">
+      <bpmn:extensionElements>
+        <zeebe:userTask />
+        <zeebe:formDefinition formId="validate_received_hiring_request" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0btuoln</bpmn:incoming>
+      <bpmn:outgoing>Flow_0uz3h60</bpmn:outgoing>
+      <bpmn:property id="Property_0x543ss" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1w7aygc">
+        <bpmn:sourceRef>DataStoreReference_0xmv9at</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0x543ss</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0cvd1mi" name="Validation passed?">
+      <bpmn:incoming>Flow_0uz3h60</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qmz57b</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0wu770h</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_0j4tupo" name="Send missing requirements to WBIG">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="sendJobMissingInformation" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0wu770h</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0xhjhn0" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0wu770h" name="faild" sourceRef="Gateway_0cvd1mi" targetRef="Event_0j4tupo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=validation.approved = false</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_1bz68tr" name="Store Job Opening">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="store_job_data" />
       </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0qmz57b</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tyufmm</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1tyufmm" sourceRef="Activity_1bz68tr" targetRef="Activity_08mkgpa" />
+    <bpmn:sequenceFlow id="Flow_147i634" sourceRef="Event_1avabsy" targetRef="Activity_01n9mer" />
     <bpmn:association id="Association_1mk6gd0" associationDirection="None" sourceRef="Activity_08mkgpa" targetRef="TextAnnotation_0gchkjt" />
   </bpmn:process>
   <bpmn:message id="Message_3opot9u" name="receiveHiringRequest">
@@ -915,20 +918,37 @@
         <dc:Bounds x="3880" y="985" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1qi9vdw_di" bpmnElement="Event_0j4tupo">
-        <dc:Bounds x="882" y="822" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="794.5" y="820" width="77" height="40" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1d6ms44_di" bpmnElement="Event_17s0kd6">
         <dc:Bounds x="3742" y="662" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3650" y="670" width="75" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1jemai2_di" bpmnElement="Activity_0ib9is9">
-        <dc:Bounds x="350" y="1290" width="100" height="80" />
+      <bpmndi:BPMNShape id="BPMNShape_1uminbu" bpmnElement="Activity_08mkgpa">
+        <dc:Bounds x="1080" y="990" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10scxbg_di" bpmnElement="Activity_01n9mer">
+        <dc:Bounds x="500" y="990" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gwva16_di" bpmnElement="Activity_186e1wx">
+        <dc:Bounds x="660" y="990" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0cvd1mi_di" bpmnElement="Gateway_0cvd1mi" isMarkerVisible="true">
+        <dc:Bounds x="835" y="1005" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="838" y="1062" width="47" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1qi9vdw_di" bpmnElement="Event_0j4tupo">
+        <dc:Bounds x="842" y="822" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="754.5" y="820" width="77" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_16k2w0r" bpmnElement="Activity_1bz68tr">
+        <dc:Bounds x="950" y="990" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_10bv7k6_di" bpmnElement="Activity_0qbgf70" isExpanded="true">
@@ -1169,28 +1189,11 @@
           <dc:Bounds x="1269" y="696" width="62" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1uminbu" bpmnElement="Activity_08mkgpa">
-        <dc:Bounds x="1040" y="990" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_0cvd1mi_di" bpmnElement="Gateway_0cvd1mi" isMarkerVisible="true">
-        <dc:Bounds x="875" y="1005" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="878" y="1062" width="47" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_00mtc3d_di" bpmnElement="Activity_0euezky">
         <dc:Bounds x="1630" y="985" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0jmd7aq_di" bpmnElement="Activity_01uzpu0">
         <dc:Bounds x="1760" y="985" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1gwva16_di" bpmnElement="Activity_186e1wx">
-        <dc:Bounds x="700" y="990" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_10scxbg_di" bpmnElement="Activity_01n9mer">
-        <dc:Bounds x="560" y="990" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataObjectReference_0kkgps2_di" bpmnElement="DataObjectReference_0kkgps2">
         <dc:Bounds x="1662" y="1255" width="36" height="50" />
@@ -1224,6 +1227,10 @@
       <bpmndi:BPMNShape id="Activity_1sk9kav_di" bpmnElement="Activity_0viurq8">
         <dc:Bounds x="4940" y="904" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1mk6gd0_di" bpmnElement="Association_1mk6gd0">
+        <di:waypoint x="1133" y="990" />
+        <di:waypoint x="1136" y="950" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1353rlo_di" bpmnElement="Flow_1353rlo">
         <di:waypoint x="4795" y="944" />
         <di:waypoint x="4940" y="944" />
@@ -1314,14 +1321,14 @@
         <di:waypoint x="4670" y="1350" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0uz3h60_di" bpmnElement="Flow_0uz3h60">
-        <di:waypoint x="800" y="1030" />
-        <di:waypoint x="875" y="1030" />
+        <di:waypoint x="760" y="1030" />
+        <di:waypoint x="835" y="1030" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0qmz57b_di" bpmnElement="Flow_0qmz57b">
-        <di:waypoint x="925" y="1030" />
-        <di:waypoint x="1040" y="1030" />
+        <di:waypoint x="885" y="1030" />
+        <di:waypoint x="950" y="1030" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="962" y="1013" width="36" height="14" />
+          <dc:Bounds x="887" y="1018" width="36" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0jhpkm3_di" bpmnElement="Flow_0jhpkm3">
@@ -1390,7 +1397,7 @@
         <di:waypoint x="4308" y="1350" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1iv5lfq_di" bpmnElement="Flow_1iv5lfq">
-        <di:waypoint x="1140" y="1030" />
+        <di:waypoint x="1180" y="1030" />
         <di:waypoint x="1230" y="1030" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1pfobni_di" bpmnElement="Flow_1pfobni">
@@ -1422,8 +1429,8 @@
         <di:waypoint x="3735" y="1025" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0btuoln_di" bpmnElement="Flow_0btuoln">
+        <di:waypoint x="600" y="1030" />
         <di:waypoint x="660" y="1030" />
-        <di:waypoint x="700" y="1030" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_13qfvml_di" bpmnElement="Flow_13qfvml">
         <di:waypoint x="2448" y="1200" />
@@ -1456,10 +1463,6 @@
       <bpmndi:BPMNEdge id="Flow_161692r_di" bpmnElement="Flow_161692r">
         <di:waypoint x="1860" y="1025" />
         <di:waypoint x="1990" y="1025" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1mk6gd0_di" bpmnElement="Association_1mk6gd0">
-        <di:waypoint x="1109" y="990" />
-        <di:waypoint x="1128" y="950" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0gium0l_di" bpmnElement="Flow_0gium0l">
         <di:waypoint x="5410" y="944" />
@@ -1504,20 +1507,24 @@
           <dc:Bounds x="3824" y="1007" width="18" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0wu770h_di" bpmnElement="Flow_0wu770h">
-        <di:waypoint x="900" y="1005" />
-        <di:waypoint x="900" y="858" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="905" y="929" width="20" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0vql155_di" bpmnElement="Flow_0vql155">
-        <di:waypoint x="368" y="1030" />
-        <di:waypoint x="560" y="1030" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_09qdgxj_di" bpmnElement="Flow_09qdgxj">
         <di:waypoint x="4610" y="944" />
         <di:waypoint x="4745" y="944" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wu770h_di" bpmnElement="Flow_0wu770h">
+        <di:waypoint x="860" y="1005" />
+        <di:waypoint x="860" y="858" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="865" y="929" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tyufmm_di" bpmnElement="Flow_1tyufmm">
+        <di:waypoint x="1050" y="1030" />
+        <di:waypoint x="1080" y="1030" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_147i634_di" bpmnElement="Flow_147i634">
+        <di:waypoint x="368" y="1030" />
+        <di:waypoint x="500" y="1030" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_18vxbbz_di" bpmnElement="Participant_1twjsyr" isHorizontal="true">
         <dc:Bounds x="160" y="80" width="7355" height="60" />
@@ -1589,7 +1596,7 @@
         <di:waypoint x="5361" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0s917wy_di" bpmnElement="DataOutputAssociation_0s917wy">
-        <di:waypoint x="1090" y="1070" />
+        <di:waypoint x="1122" y="1070" />
         <di:waypoint x="1090" y="1240" />
         <di:waypoint x="915" y="1240" />
       </bpmndi:BPMNEdge>
@@ -1619,7 +1626,7 @@
       <bpmndi:BPMNEdge id="DataInputAssociation_1w7aygc_di" bpmnElement="DataInputAssociation_1w7aygc">
         <di:waypoint x="865" y="1240" />
         <di:waypoint x="750" y="1240" />
-        <di:waypoint x="750" y="1070" />
+        <di:waypoint x="718" y="1070" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_0m5p9fz_di" bpmnElement="DataInputAssociation_0m5p9fz">
         <di:waypoint x="3465" y="1490" />
@@ -1655,8 +1662,8 @@
         <di:waypoint x="4290" y="1970" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_14gl3a6_di" bpmnElement="Flow_14gl3a6">
-        <di:waypoint x="900" y="820" />
-        <di:waypoint x="900" y="140" />
+        <di:waypoint x="860" y="820" />
+        <di:waypoint x="860" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1o14m3s_di" bpmnElement="Flow_1o14m3s">
         <di:waypoint x="7397" y="1032" />
