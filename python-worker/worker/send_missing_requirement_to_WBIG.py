@@ -47,12 +47,13 @@ def register_prepare_missing_requirements(worker: ZeebeWorker) -> None:
 
 
 async def main():
-    channel = create_insecure_channel(grpc_address="141.26.156.184:26500")
-    print("Channel created")
-    worker = ZeebeWorker(channel)
-    print("Worker created")
-    
-    register_prepare_missing_requirements(worker)
+    channel_WPLACM = create_insecure_channel(grpc_address="141.26.156.184:26500")
+    channel_WBIG = create_insecure_channel(grpc_address="141.26.156.185:26500")    
+
+    worker = ZeebeWorker(channel_WPLACM)
+    client_WBIG = ZeebeClient(channel_WBIG)
+
+    register(worker, client_WBIG)
 
     await worker.work()
 
